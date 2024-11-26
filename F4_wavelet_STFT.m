@@ -23,7 +23,13 @@
 clear;
 
 dataPoint = 1024;
-
+% numDataSet = 5000;
+% trainingData = zeros(dataPoint, numDataSet);
+% dfr = 0.001; %relative high resolution to get a smooth curve
+% fr = -10:dfr:10; %frequency region shift (ppm)
+% frb = fr(1:10:end-10); % bin frequency to reduce size
+% trainingKey = zeros(length(frb), numDataSet);
+% parfor numD = 1:numDataSet  
     
 
     NMRfreq = 500; % MHz
@@ -243,6 +249,20 @@ dataPoint = 1024;
     FID = FID + noiseR + 1i*noiseI; % add ynoise white noise with equal weight in real and imaginary
     % figure; hold on; plot(fr, peakTime(:,1)); plot(fr, peakTime(:,end)); jcPlotStyle;
     % figure; plot(t, real(FID)); jcPlotStyle;
+
+%     frb = fr(1:10:end-10);
+%     peakTrueb = binData(peakTrue, 10);
+%     % figure; plot(frb, peakTrueb); jcPlotStyle;
+%     
+%     
+%     trainingData(:, numD) = FID';
+%     trainingKey(:, numD) = peakTrueb;
+%     fprintf('.');
+%     if ~rem(numD,100)
+%         fprintf('\n');
+%     end
+% end 
+    
     
     
     %% FFT
